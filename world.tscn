@@ -1,0 +1,176 @@
+[gd_scene format=3 uid="uid://c4sngqb5kurn5"]
+
+[ext_resource type="PackedScene" uid="uid://cx4fuhhyy4ca7" path="res://Player.tscn" id="1_f3sb7"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_f3sb7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fj7yv"]
+size = Vector2(470, 240)
+
+[sub_resource type="QuadMesh" id="QuadMesh_gv5m4"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_tlwt5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aqk2v"]
+size = Vector2(470, 236.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gv5m4"]
+size = Vector2(3.78865, 0.9866657)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f3sb7"]
+size = Vector2(142, 124)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tlwt5"]
+size = Vector2(130, 1235.9999)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_036b0"]
+size = Vector2(130, 1235.9999)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dwbse"]
+size = Vector2(2405, 135)
+
+[node name="World" type="Node2D" unique_id=984133831]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=447950390]
+offset = Vector2(650, 0)
+zoom = Vector2(0.5, 0.5)
+
+[node name="Player" parent="." unique_id=228831753 instance=ExtResource("1_f3sb7")]
+position = Vector2(96, 99)
+
+[node name="Wall" type="StaticBody2D" parent="." unique_id=1842698048]
+
+[node name="WallBox" type="MeshInstance2D" parent="Wall" unique_id=1535130629]
+position = Vector2(746, 427.00003)
+scale = Vector2(469.49997, 238.5)
+mesh = SubResource("QuadMesh_f3sb7")
+
+[node name="WallHitbox" type="CollisionShape2D" parent="Wall" unique_id=960502170]
+position = Vector2(748, 425)
+scale = Vector2(1, 1.0000001)
+shape = SubResource("RectangleShape2D_fj7yv")
+
+[node name="Ground" type="StaticBody2D" parent="." unique_id=1850725577]
+
+[node name="GroundBox" type="MeshInstance2D" parent="Ground" unique_id=307416114]
+position = Vector2(726.00006, 534.5)
+scale = Vector2(4362, 225.00003)
+mesh = SubResource("QuadMesh_gv5m4")
+
+[node name="TopBox" type="MeshInstance2D" parent="Ground" unique_id=1740853468]
+position = Vector2(746, -13.000015)
+scale = Vector2(469.49997, 238.5)
+mesh = SubResource("QuadMesh_tlwt5")
+
+[node name="TopHitbox" type="CollisionShape2D" parent="Ground" unique_id=1909076215]
+position = Vector2(748, -13.25)
+shape = SubResource("RectangleShape2D_aqk2v")
+
+[node name="GroundHitbox" type="CollisionShape2D" parent="Ground" unique_id=247998090]
+position = Vector2(721.00006, 537.00006)
+scale = Vector2(1149.75, 224.99997)
+shape = SubResource("RectangleShape2D_gv5m4")
+
+[node name="Wall2" type="StaticBody2D" parent="." unique_id=1820245893]
+position = Vector2(424, -56)
+
+[node name="WallBox" type="MeshInstance2D" parent="Wall2" unique_id=1827904525]
+position = Vector2(745.5, 367.875)
+scale = Vector2(141.00002, 120.24996)
+mesh = SubResource("QuadMesh_f3sb7")
+
+[node name="WallHitbox" type="CollisionShape2D" parent="Wall2" unique_id=1249635315]
+position = Vector2(746, 369)
+scale = Vector2(1, 1.0000001)
+shape = SubResource("RectangleShape2D_f3sb7")
+
+[node name="Wall3" type="StaticBody2D" parent="." unique_id=493307133]
+position = Vector2(568, -224)
+
+[node name="WallBox" type="MeshInstance2D" parent="Wall3" unique_id=1926736182]
+position = Vector2(745.5, 367.875)
+scale = Vector2(141.00002, 120.24996)
+mesh = SubResource("QuadMesh_f3sb7")
+
+[node name="WallHitbox" type="CollisionShape2D" parent="Wall3" unique_id=1739603003]
+position = Vector2(746, 369)
+scale = Vector2(1, 1.0000001)
+shape = SubResource("RectangleShape2D_f3sb7")
+
+[node name="Wall4" type="StaticBody2D" parent="." unique_id=565071609]
+position = Vector2(296, -368)
+
+[node name="WallBox" type="MeshInstance2D" parent="Wall4" unique_id=1323728379]
+position = Vector2(745.5, 367.875)
+scale = Vector2(141.00002, 120.24996)
+mesh = SubResource("QuadMesh_f3sb7")
+
+[node name="WallHitbox" type="CollisionShape2D" parent="Wall4" unique_id=1455770552]
+position = Vector2(746, 369)
+scale = Vector2(1, 1.0000001)
+shape = SubResource("RectangleShape2D_f3sb7")
+
+[node name="Wall5" type="StaticBody2D" parent="." unique_id=2031191794]
+position = Vector2(-489, -360)
+
+[node name="WallBox" type="MeshInstance2D" parent="Wall5" unique_id=1387359717]
+position = Vector2(745.5, 367.875)
+scale = Vector2(141.00002, 120.24996)
+mesh = SubResource("QuadMesh_f3sb7")
+
+[node name="WallHitbox" type="CollisionShape2D" parent="Wall5" unique_id=2031498534]
+position = Vector2(746, 369)
+scale = Vector2(1, 1.0000001)
+shape = SubResource("RectangleShape2D_f3sb7")
+
+[node name="Wall6" type="StaticBody2D" parent="." unique_id=804742756]
+position = Vector2(751, 16)
+
+[node name="WallBox" type="MeshInstance2D" parent="Wall6" unique_id=243450389]
+position = Vector2(745.5, 367.875)
+scale = Vector2(141.00002, 120.24996)
+mesh = SubResource("QuadMesh_f3sb7")
+
+[node name="WallHitbox" type="CollisionShape2D" parent="Wall6" unique_id=608540071]
+position = Vector2(746, 369)
+scale = Vector2(1, 1.0000001)
+shape = SubResource("RectangleShape2D_f3sb7")
+
+[node name="Wall7" type="StaticBody2D" parent="." unique_id=1325898226]
+position = Vector2(-1416, -16)
+
+[node name="WallBox" type="MeshInstance2D" parent="Wall7" unique_id=176382793]
+position = Vector2(916.375, -71.875)
+scale = Vector2(128.74997, 1236.25)
+mesh = SubResource("QuadMesh_f3sb7")
+
+[node name="WallHitbox" type="CollisionShape2D" parent="Wall7" unique_id=699424524]
+position = Vector2(3216, -78)
+scale = Vector2(1, 1.0000001)
+shape = SubResource("RectangleShape2D_tlwt5")
+
+[node name="Wall8" type="StaticBody2D" parent="." unique_id=1362027075]
+position = Vector2(880, -16)
+
+[node name="WallBox" type="MeshInstance2D" parent="Wall8" unique_id=2868879]
+position = Vector2(916.375, -71.875)
+scale = Vector2(128.74997, 1236.25)
+mesh = SubResource("QuadMesh_f3sb7")
+
+[node name="WallHitbox" type="CollisionShape2D" parent="Wall8" unique_id=1894774913]
+position = Vector2(-1380, -80)
+scale = Vector2(1, 1.0000001)
+shape = SubResource("RectangleShape2D_036b0")
+
+[node name="Wall9" type="StaticBody2D" parent="." unique_id=83370531]
+position = Vector2(-1416, -16)
+
+[node name="WallBox" type="MeshInstance2D" parent="Wall9" unique_id=498508104]
+position = Vector2(916.375, -71.875)
+scale = Vector2(128.74997, 1236.25)
+mesh = SubResource("QuadMesh_f3sb7")
+
+[node name="WallHitbox" type="CollisionShape2D" parent="Wall9" unique_id=654340866]
+position = Vector2(2055.5, -623.5)
+scale = Vector2(1, 1.0000001)
+shape = SubResource("RectangleShape2D_dwbse")
