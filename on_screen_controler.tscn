@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://cerbyi0he4kra"]
+
+[ext_resource type="Script" uid="uid://d345aao8pfeb4" path="res://inputs.gd" id="1_kibk5"]
+
+[node name="OnScreenControler" type="CanvasLayer" unique_id=1214432443]
+script = ExtResource("1_kibk5")
+
+[node name="Left" type="Button" parent="." unique_id=880587912]
+offset_left = 8.0
+offset_top = 524.0
+offset_right = 139.0
+offset_bottom = 642.0
+theme_override_font_sizes/font_size = 80
+text = "<-"
+
+[node name="Right" type="Button" parent="." unique_id=1966777558]
+offset_left = 143.0
+offset_top = 523.0
+offset_right = 269.0
+offset_bottom = 641.0
+theme_override_font_sizes/font_size = 80
+text = "->"
+
+[node name="Up" type="Button" parent="." unique_id=771590021]
+offset_left = 79.0
+offset_top = 401.0
+offset_right = 210.0
+offset_bottom = 519.0
+theme_override_font_sizes/font_size = 80
+text = "/\\
+"
+
+[node name="Down" type="Button" parent="." unique_id=1218972237]
+offset_left = 1013.0
+offset_top = 520.0
+offset_right = 1144.0
+offset_bottom = 638.0
+theme_override_font_sizes/font_size = 80
+text = "\\/"
+
+[connection signal="button_down" from="Left" to="." method="_on_left_button_down"]
+[connection signal="button_up" from="Left" to="." method="_on_left_button_up"]
+[connection signal="button_down" from="Right" to="." method="_on_right_button_down"]
+[connection signal="button_up" from="Right" to="." method="_on_right_button_up"]
+[connection signal="button_down" from="Up" to="." method="_on_up_button_down"]
+[connection signal="button_up" from="Up" to="." method="_on_up_button_up"]
+[connection signal="button_down" from="Down" to="." method="_on_down_button_down"]
+[connection signal="button_up" from="Down" to="." method="_on_down_button_up"]

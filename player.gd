@@ -19,6 +19,15 @@ var is_moving_LR = false
 
 
 func _physics_process(delta):
+	if globals.kcl_down || globals.osl_down: globals.l_down = true
+	else: globals.l_down = false
+	if globals.kcr_down || globals.osr_down: globals.r_down = true
+	else: globals.r_down = false
+	if globals.kcu_down || globals.osu_down: globals.u_down = true
+	else: globals.u_down = false
+	if globals.kcd_down || globals.osd_down: globals.d_down = true
+	else: globals.d_down = false
+	
 	if is_on_floor():
 		has_dash = true
 		if recent_dash:
@@ -28,19 +37,19 @@ func _physics_process(delta):
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 	
-	if is_on_floor() && !Input.is_action_pressed("Left") && !Input.is_action_pressed("Right") && !Input.is_action_pressed("Jump"):
+	if is_on_floor() && !globals.l_down && !globals.r_down && !globals.u_down:
 		animation_type = "idle"
 	
-	if !Input.is_action_pressed("Left") && !Input.is_action_pressed("Right"):
+	if !globals.l_down && !globals.r_down:
 		is_moving_LR = false
 	else:
 		is_moving_LR = true
 
-	if Input.is_action_pressed("Jump") and is_on_floor():
+	if globals.u_down and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 		animation_type = "jump"
 	
-	if Input.is_action_pressed("Left"):
+	if globals.l_down:
 		direction = "Left"
 		if velocity.x > 0:
 			velocity.x -= OPOSPEED
@@ -52,7 +61,7 @@ func _physics_process(delta):
 		if is_on_floor():
 			animation_type = "walk"
 		
-	elif Input.is_action_pressed("Right"):
+	elif globals.r_down:
 		direction = "right"
 		if velocity.x < 0:
 			velocity.x += OPOSPEED
@@ -67,9 +76,10 @@ func _physics_process(delta):
 	else:
 		velocity.x = move_toward(velocity.x, 0, OPOSPEED)
 		
-	if Input.is_action_just_pressed("Dash"):
+	if globals.d_down:
 		if direction == "right":
 			if has_dash:
+				animation_type = "dash"
 				predash_x_velocity = velocity.x
 				if is_moving_LR:
 					velocity.x = 1000
@@ -80,6 +90,7 @@ func _physics_process(delta):
 				velocity.y = 0
 		else:
 			if has_dash:
+				animation_type = "dash"
 				predash_x_velocity = velocity.x
 				if is_moving_LR:
 					velocity.x = -1500
@@ -101,7 +112,16 @@ func _process(_delta):
 		
 	if animation_type == "idle":
 		animation.play("Idle")
-	elif animation_type == "walk":
+	if animation_type == "walk":
 		animation.play("Walk")
-	else:
+	if animation_type == "jump":
 		animation.play("Jump")
+	if animation_type == "dash":
+		animation.play("Dash")
+	
+	if globals.win:
+		$WinParticles.show()
+
+
+func _on_win_particle_detection_body_entered(body: Node2D) -> void:
+	pass # Replace with function body.

@@ -15,6 +15,14 @@ run/main_scene="uid://c4sngqb5kurn5"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+globals="*uid://dc30n3hvbfp1c"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/BurstParticles2D/plugin.cfg")
+
 [input]
 
 Jump={
@@ -61,3 +69,5 @@ textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true
+environment/defaults/default_clear_color=Color(0, 0.8992308, 0.89923066, 1)
