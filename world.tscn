@@ -3,9 +3,9 @@
 [ext_resource type="Script" uid="uid://d1p5488jto1ju" path="res://addons/BurstParticles2D/BurstParticles2D.gd" id="1_dwbse"]
 [ext_resource type="PackedScene" uid="uid://cx4fuhhyy4ca7" path="res://Player.tscn" id="1_f3sb7"]
 [ext_resource type="PackedScene" uid="uid://cerbyi0he4kra" path="res://on_screen_controler.tscn" id="2_036b0"]
-[ext_resource type="Texture2D" uid="uid://bdmk81dhadexq" path="res://Grass1.png" id="2_fj7yv"]
-[ext_resource type="Texture2D" uid="uid://ctabocibsmeih" path="res://Grass2.png" id="3_tlwt5"]
-[ext_resource type="Texture2D" uid="uid://n8mw87fet3yy" path="res://Grass3.png" id="4_aqk2v"]
+[ext_resource type="Texture2D" uid="uid://bdmk81dhadexq" path="res://assets/Tile Maps/Grass/Grass1.png" id="2_fj7yv"]
+[ext_resource type="Texture2D" uid="uid://ctabocibsmeih" path="res://assets/Tile Maps/Grass/Grass2.png" id="3_tlwt5"]
+[ext_resource type="Texture2D" uid="uid://n8mw87fet3yy" path="res://assets/Tile Maps/Grass/Grass3.png" id="4_aqk2v"]
 [ext_resource type="Script" uid="uid://dxsh04liwjhin" path="res://win_particle_detection.gd" id="7_pkg7o"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_pkg7o"]
@@ -104,6 +104,8 @@ size = Vector2(232, 28)
 
 [node name="World" type="Node2D" unique_id=984133831]
 
+[node name="OnScreenControler" parent="." unique_id=1214432443 instance=ExtResource("2_036b0")]
+
 [node name="Player" parent="." unique_id=228831753 instance=ExtResource("1_f3sb7")]
 position = Vector2(-520, 195)
 
@@ -127,8 +129,6 @@ position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 rotation_smoothing_enabled = true
 rotation_smoothing_speed = 10.0
-
-[node name="OnScreenControler" parent="Player/Camera2D" unique_id=1214432443 instance=ExtResource("2_036b0")]
 
 [node name="SpawnPoint" type="Node2D" parent="." unique_id=1397457087]
 position = Vector2(96, 192)

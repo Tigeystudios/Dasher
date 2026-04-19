@@ -4,7 +4,7 @@ extends CharacterBody2D
 const NORSPEED = 10
 const OPOSPEED = 150
 const JUMP_VELOCITY = -750
-const MAX_X_VELOCITY = 900
+const MAX_X_VELOCITY = 650
 
 var predash_x_velocity = 0
 
@@ -14,6 +14,7 @@ var direction = "right"
 var animation_type = "idle"
 
 var has_dash = false
+var dashing = false
 var recent_dash = false
 var is_moving_LR = false
 
@@ -31,7 +32,7 @@ func _physics_process(delta):
 	if is_on_floor():
 		has_dash = true
 		if recent_dash:
-			velocity.x = predash_x_velocity
+			velocity.x = 0
 		recent_dash = false
 	
 	if not is_on_floor():
@@ -49,26 +50,26 @@ func _physics_process(delta):
 		velocity.y = JUMP_VELOCITY
 		animation_type = "jump"
 	
-	if globals.l_down:
+	if globals.l_down && !dashing:
 		direction = "Left"
 		if velocity.x > 0:
 			velocity.x -= OPOSPEED
 		elif velocity.x > -MAX_X_VELOCITY:
 			velocity.x -= NORSPEED
 		else:
-			velocity.x += 10
+			velocity.x += 100
 		
 		if is_on_floor():
 			animation_type = "walk"
 		
-	elif globals.r_down:
+	elif globals.r_down && !dashing:
 		direction = "right"
 		if velocity.x < 0:
 			velocity.x += OPOSPEED
 		elif velocity.x < MAX_X_VELOCITY:
 			velocity.x += NORSPEED
 		else:
-			velocity.x -= 10
+			velocity.x -= 100
 		
 		if is_on_floor():
 			animation_type = "walk"
@@ -77,30 +78,24 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, OPOSPEED)
 		
 	if globals.d_down:
-		if direction == "right":
-			if has_dash:
+		if has_dash && $DashTimer.time_left == 0:
+			if direction == "right":
 				animation_type = "dash"
 				predash_x_velocity = velocity.x
-				if is_moving_LR:
-					velocity.x = 1000
-				else:
-					velocity.x = 2000
+				velocity.x = 2500
 				if !is_on_floor():
 					has_dash = false
 				velocity.y = 0
-		else:
-			if has_dash:
+			else:
 				animation_type = "dash"
 				predash_x_velocity = velocity.x
-				if is_moving_LR:
-					velocity.x = -1500
-				else:
-					velocity.x = -3000
+				velocity.x = -2500
 				if !is_on_floor():
 					has_dash = false
 				if !is_on_floor():
 					recent_dash = true
 				velocity.y = 0
+			$DashTimer.start()
 			
 	move_and_slide()
 
@@ -118,10 +113,13 @@ func _process(_delta):
 		animation.play("Jump")
 	if animation_type == "dash":
 		animation.play("Dash")
+		
+	if velocity.x > 1000 || velocity.x < -1000:
+		dashing = true
+	else:
+		dashing = false
 	
 	if globals.win:
 		$WinParticles.show()
-
-
-func _on_win_particle_detection_body_entered(body: Node2D) -> void:
-	pass # Replace with function body.
+	
+	print($DashTimer.time_left)

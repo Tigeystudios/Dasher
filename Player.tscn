@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://cx4fuhhyy4ca7"]
 
 [ext_resource type="Script" uid="uid://c0ro5m1jln580" path="res://player.gd" id="1_kpjcp"]
-[ext_resource type="Texture2D" uid="uid://hcvroahv2xwv" path="res://Player/PlayerDash.png" id="2_cxr5p"]
-[ext_resource type="Texture2D" uid="uid://x724ruvekgqp" path="res://Player/PlayerIdle.png" id="2_kpjcp"]
-[ext_resource type="Texture2D" uid="uid://bl75uhn5gswv4" path="res://Player/PlayerJump.png" id="3_e80uo"]
-[ext_resource type="Texture2D" uid="uid://dl1o05w0cje2j" path="res://Player/PlayerWalk.png" id="4_cxr5p"]
+[ext_resource type="Texture2D" uid="uid://hcvroahv2xwv" path="res://assets/Characters/Player/PlayerDash.png" id="2_cxr5p"]
+[ext_resource type="Texture2D" uid="uid://x724ruvekgqp" path="res://assets/Characters/Player/PlayerIdle.png" id="2_kpjcp"]
+[ext_resource type="Texture2D" uid="uid://bl75uhn5gswv4" path="res://assets/Characters/Player/PlayerJump.png" id="3_e80uo"]
+[ext_resource type="Texture2D" uid="uid://dl1o05w0cje2j" path="res://assets/Characters/Player/PlayerWalk.png" id="4_cxr5p"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d6rpx"]
 atlas = ExtResource("2_cxr5p")
@@ -178,3 +178,7 @@ frame_progress = 0.8620468
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1934047569]
 position = Vector2(-1, 10)
 shape = SubResource("CapsuleShape2D_dtqjt")
+
+[node name="DashTimer" type="Timer" parent="." unique_id=25542960]
+wait_time = 0.25
+one_shot = true

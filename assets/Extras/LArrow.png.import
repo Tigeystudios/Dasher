@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://x724ruvekgqp"
-path="res://.godot/imported/PlayerIdle.png-41989b53fa39878c88c9d3f24b165d24.ctex"
+uid="uid://pei6gct86r1k"
+path="res://.godot/imported/LArrow.png-c01550703f2276e33195149d172243e5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Player/PlayerIdle.png"
-dest_files=["res://.godot/imported/PlayerIdle.png-41989b53fa39878c88c9d3f24b165d24.ctex"]
+source_file="res://assets/Extras/LArrow.png"
+dest_files=["res://.godot/imported/LArrow.png-c01550703f2276e33195149d172243e5.ctex"]
 
 [params]
 
