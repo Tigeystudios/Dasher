@@ -40,12 +40,3 @@ scale = Vector2(1.7395834, 1.7395834)
 texture_normal = ExtResource("3_c4wsh")
 action = "Dash"
 visibility_mode = 1
-
-[node name="Button" type="Button" parent="." unique_id=1334717082]
-offset_right = 8.0
-offset_bottom = 8.0
-toggle_mode = true
-button_pressed = true
-text = "Mobile Controls"
-
-[connection signal="toggled" from="Button" to="." method="_on_button_toggled"]

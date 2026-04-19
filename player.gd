@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-const NORSPEED = 10
+const NORSPEED = 25
 const OPOSPEED = 150
 const JUMP_VELOCITY = -750
 const MAX_X_VELOCITY = 650
@@ -20,13 +20,13 @@ var is_moving_LR = false
 
 
 func _physics_process(delta):
-	if globals.kcl_down || globals.osl_down: globals.l_down = true
+	if globals.kcl_down: globals.l_down = true
 	else: globals.l_down = false
-	if globals.kcr_down || globals.osr_down: globals.r_down = true
+	if globals.kcr_down: globals.r_down = true
 	else: globals.r_down = false
-	if globals.kcu_down || globals.osu_down: globals.u_down = true
+	if globals.kcu_down: globals.u_down = true
 	else: globals.u_down = false
-	if globals.kcd_down || globals.osd_down: globals.d_down = true
+	if globals.kcd_down: globals.d_down = true
 	else: globals.d_down = false
 	
 	if is_on_floor():
@@ -117,6 +117,10 @@ func _process(_delta):
 	if velocity.x > 1000 || velocity.x < -1000:
 		dashing = true
 	else:
+		dashing = false
+	
+	if is_on_wall():
+		animation_type = "jump"
 		dashing = false
 	
 	if globals.win:
